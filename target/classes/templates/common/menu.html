@@ -1,0 +1,35 @@
+<style>
+    #portal-menu {
+        padding: 1.4em;
+    }
+    #portal-menu a {
+        display: inline-block;
+        color: #ddd;
+        font-weight: bold;
+        padding: 0 2em;
+    }
+</style>
+<div class="row" style="background: #610D27; padding: 0em; color: #eee; text-align: center">
+        <div class="container-fluid" style="background: #610D27; color: #eee; ">
+            <div class="container">
+                <div id="portal-menu" class="row">
+
+                    <div class="col-md-3"><a th:href="@{/}"><img th:src="@{/img/portal_logo.png}" class="img-responsive" /></a></div>
+                    <div class="col-md-3" style=""><br /><i class="fa fa-phone"></i> +234 908 514 4450</div>
+                    <div class="col-md-3">
+                        <!--                    <a href="#">HOME</a>
+                                            <a href="#">SERVICES</a>
+                                            <a href="#">PRICING</a>
+                                            <a href="#">SUPPORT</a>-->
+
+                    </div>
+                    <div class="col-md-3"><br />
+                        <a th:href="@{/dashboard}" style="font-size: larger">
+                            <span sec:authorize="isAuthenticated()"><i class="fa fa-tachometer"></i> DASHBOARD</span>
+                            <span sec:authorize="not isAuthenticated()"><i class="fa fa-sign-in"></i> LOGIN</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

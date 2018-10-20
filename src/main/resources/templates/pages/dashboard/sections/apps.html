@@ -1,0 +1,21 @@
+<div class="row">
+    <h1>Apps</h1>
+    <br /><br />
+    <div class="col-md-2 img-thumbnail" th:each="app : ${apps}" style="padding: 2em; margin-right: 1em; text-align: center">
+                    <img th:src="${app.logoUrl}" th:alt="${app.name}" class="img-responsive" style="padding: 0em;" />
+        <br />
+        <div class="row">
+            <div style="text-align: left; display: inline-block; font-weight: bold; font-size: 1.5em; margin: 0em ">
+                <span class="col-md-4">
+                    <a th:href="${app.url}"  style="color:" title="Dashboard"><i class="fa fa-tachometer"></i> </a>
+                </span>
+                <span class="col-md-4" sec:authorize="hasAuthority('super-admin')" th:if="${app.guideUrl}">
+                    <a th:href="${app.guideUrl}" target="_blank" style="color: olivedrab" title="Developer Guide" ><i class="fa fa-play-circle"></i> </a>
+                </span>
+                <span class="col-md-4" sec:authorize="hasAuthority('super-admin')" th:if="${app.restReferenceUrl}">
+                    <a th:href="${app.restReferenceUrl}" target="_blank" style="color:" title="REST API Reference"> <i class="fa fa-code"></i> </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

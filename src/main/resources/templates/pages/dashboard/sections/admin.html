@@ -1,0 +1,75 @@
+<div class="col-md-7">
+    <h3>Apps</h3>
+    <form method="post" enctype="multipart/form-data" th:action="@{/dashboard/admin/apps}" th:object="${app}" style="margin: 2em 0; border-radius: 4px; border: 1px solid #ddd; box-shadow: 0 1px 2px rgba(0,0,0,.075); padding: 3em; background-color: #f9f9f9 ">
+        <h4 th:if="${app}">Edit App</h4>
+        <h4 th:unless="${app}">New App</h4>
+        <div th:replace="common/dialog"></div>
+        <input type="hidden" th:field="*{id}"/>
+        <div class="form-group">
+            <label>Name</label>
+            <input class="form-control" type="text" required="required" th:field="*{name}" />
+        </div>
+        <div class="form-group">
+            <label>URL</label>
+            <input class="form-control" type="url" required="required" th:field="*{url}" />
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" rows="6" pattern=".{201,1000}" title="200 to 1000 characters"  required="required" th:field="*{description}"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Service ID</label>
+            <input class="form-control" type="text" required="required" th:field="*{serviceId}" />
+        </div>
+        
+        <div class="form-group">
+            <label>Bitbucket URL</label>
+            <input class="form-control" type="url" required="required" th:field="*{repositoryUrl}" />
+        </div>
+        
+        <div class="form-group">
+            <label>User Guide URL</label>
+            <input class="form-control" type="url" th:field="*{guideUrl}" />
+        </div>
+        
+        <div class="form-group">
+            <label>REST Documentation URL</label>
+            <input class="form-control" type="url" required="required" th:field="*{restReferenceUrl}" />
+        </div>
+        
+        <div class="form-group">
+            <label>Logo</label>
+            <input class="form-control" type="file" name="logo" />
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary"><i class="fa fa-send"></i> 
+                <span th:text="Update" th:if="${app}" th:remove="tag"></span>
+                <span th:text="Create" th:unless="${app}" th:remove="tag"></span>
+            </button>
+        </div>
+    </form>
+    <br />
+    <h4>Apps</h4>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>URL</th>
+            <th>Service ID</th>
+            <th>Date Created</th>
+            <th></th>
+        </tr>
+        <tr th:each="app : ${apps}">
+            <td th:text="${app.name}"></td>
+            <td th:text="${app.url}"></td>
+            <td th:text="${app.serviceId}"></td>
+            <td th:text="${{app.createdAt}}"></td>
+            <td style="font-size: small">
+                <a th:href="@{'/dashboard/admin/apps/' + ${app.id}}"><i class="fa fa-edit"></i> Edit</a>
+                &nbsp;&nbsp;
+                <a th:href="@{'/dashboard/admin/apps/' + ${app.id}} + '/pricing'"><i class="fa fa-money"></i> Billing</a>
+            </td>
+        </tr>
+    </table>
+
+</div>

@@ -1,0 +1,10 @@
+<div class="container"  sec:authorize="isAuthenticated()">
+    <div class="row">
+        <div class="col-md-12" style="text-align: right">
+            <form th:action="@{/logout}" method="post" id="logoutForm">
+                <i style="color: #999" class="fa fa-user"></i> Hi, <span sec:authentication="userAuthentication.details['full_name']"></span>
+                <button class="btn btn-link" style="font-size: smaller; font-weight: bolder">Logout <i class="fa fa-sign-out"></i></button>
+            </form>
+        </div>
+    </div>
+</div>

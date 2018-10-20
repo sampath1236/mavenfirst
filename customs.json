@@ -1,0 +1,22 @@
+{
+    "elements": {},
+    "attributes": {
+        "th:text": {},
+        "th:object": {},
+        "th:action": {},
+        "th:each": {},
+        "th:field": {},
+        "th:if": {},
+        "integrity": {
+            "context": "script"
+        },
+        "sec:authentication": {},
+        "th:unless": {},
+        "th;src": {},
+        "th:src": {},
+        "sec:authorize": {},
+        "th:replace": {},
+        "th:href": {},
+        "th:value": {}
+    }
+}

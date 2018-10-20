@@ -1,0 +1,23 @@
+<div class="row">
+    <h1>Developer</h1>
+</div>
+<div th:replace="common/dialog"></div>
+<div class="row" th:if="${account.clientId}">
+    <div class="col-md-6">
+        <h3>API Key</h3>
+        Client ID: <span th:text="${account.clientId}" ></span><br />
+        Client Secret: <span th:text="${account.clientSecret}" ></span>
+    </div>
+    <div class="col-md-6">
+        <h3>API Usage Information</h3>
+        <span th:text="${account.usage}"></span>/<span th:text="${account.limit}"></span>
+    </div>
+</div>
+<div class="row" th:unless="${account.clientId}">
+    <form method="post" th:action="@{/dashboard/developer}">
+        <br /><br />
+        <button class="btn btn-default btn-lg btn" name="join" value="join"><i class="fa fa-code"></i> Become A Developer</button>
+        <br /><br />
+        <i style="font-size: smaller; font-weight: bold; color: chocolate">You may be asked to sign in again to complete your account update.</i>
+    </form>
+</div>

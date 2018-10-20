@@ -1,0 +1,23 @@
+server:
+  port: ${port:8080}
+  contextPath: /
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    metadataMap:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    preferIpAddress: true
+    ipAddress: ${LOCAL_IP:localhost}
+
+aws:
+  cloudwatch:
+    region: ${AWS_CLOUDWATCH_REGION:eu-west-1}
+    reporter:
+      sync-interval: 1
+
+logging:
+  config: classpath:logback-cloud.xml
+
+spring:
+  template:
+    cache: true;

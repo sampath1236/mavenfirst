@@ -1,0 +1,33 @@
+<div class="row">
+    <h1>Settings</h1>
+
+    <br /><br />
+    <button class="btn btn-danger btn" name="join" data-toggle="modal" data-target=".delete-confirmation">
+        <i class="fa fa-trash"></i> Delete Account
+    </button>
+    <br /><br />
+    <i style="font-size: smaller; font-weight: bold; color: error">This action cannot be undone!</i>
+
+
+    <div class="modal fade delete-confirmation" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="gridSystemModalLabel">Are you sure?</h4>
+                </div>
+                <div class="modal-body">
+                    This action cannot be undone!
+                </div>
+
+                <div class="modal-footer">
+                    <form method="post" th:action="@{/dashboard/settings}">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
